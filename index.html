@@ -460,6 +460,88 @@ business website development Kenya
   .pf-link svg{width:12px;height:12px;transition:transform .2s;}
   .pf-card:hover .pf-link svg{transform:translate(3px,-3px);}
   .pf-cta{margin-top:52px;}
+  .pf-template-badge{
+    position:absolute;top:14px;right:14px;z-index:2;
+    background:rgba(13,11,43,0.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    color:#fff;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.07em;text-transform:uppercase;
+    padding:6px 10px;border-radius:2px;border:1px solid rgba(255,255,255,0.25);
+    display:flex;align-items:center;gap:6px;
+  }
+  .pf-template-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--cyan);flex-shrink:0;}
+
+  /* SHOW MORE PAGINATION */
+  .pf-extra{display:none;}
+  .pf-extra.pf-show{display:flex;animation:pfFadeIn .55s ease both;}
+  @keyframes pfFadeIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+  .pf-more-row{display:flex;justify-content:center;margin-top:40px;}
+  .pf-more-row .btn{display:none;}
+
+  /* CINEMATIC LIVE BANNER */
+  .cine-banner{
+    position:relative;width:100%;
+    height:clamp(360px,46vw,540px);
+    border-radius:6px;overflow:hidden;margin-bottom:56px;
+    background:var(--navy);
+    box-shadow:0 34px 80px -34px var(--glow-purple);
+    isolation:isolate;
+  }
+  .cine-slides{position:absolute;inset:0;}
+  .cine-slide{
+    position:absolute;inset:0;background-size:cover;background-position:center;
+    opacity:0;transform:scale(1.0);
+    transition:opacity 1.1s ease;
+    filter:saturate(1.05);
+  }
+  .cine-slide.active{opacity:1;animation:cineKenBurns 7s ease-out forwards;z-index:1;}
+  @keyframes cineKenBurns{
+    from{transform:scale(1.0) translate(0,0);}
+    to{transform:scale(1.11) translate(-1%,-1%);}
+  }
+  .cine-scrim{
+    position:absolute;inset:0;z-index:2;pointer-events:none;
+    background:
+      linear-gradient(180deg, rgba(13,11,43,0.55) 0%, rgba(13,11,43,0.05) 26%, rgba(13,11,43,0.15) 55%, rgba(13,11,43,0.92) 100%),
+      linear-gradient(90deg, rgba(13,11,43,0.55) 0%, rgba(13,11,43,0.05) 40%);
+  }
+  .cine-live{
+    position:absolute;top:22px;left:22px;z-index:3;
+    display:flex;align-items:center;gap:8px;
+    background:rgba(10,9,24,0.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    border:1px solid rgba(255,255,255,0.18);border-radius:30px;
+    padding:8px 14px 8px 11px;
+    font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:#fff;
+  }
+  .cine-live .cine-dot{width:7px;height:7px;border-radius:50%;background:#FF4F4F;box-shadow:0 0 0 0 rgba(255,79,79,0.6);animation:cinePulse 1.6s ease-out infinite;flex-shrink:0;}
+  @keyframes cinePulse{
+    0%{box-shadow:0 0 0 0 rgba(255,79,79,0.55);}
+    70%{box-shadow:0 0 0 8px rgba(255,79,79,0);}
+    100%{box-shadow:0 0 0 0 rgba(255,79,79,0);}
+  }
+  .cine-count{position:absolute;top:22px;right:22px;z-index:3;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted-dark);letter-spacing:0.06em;}
+  .cine-progress{
+    position:absolute;top:0;left:0;right:0;z-index:3;
+    display:flex;gap:6px;padding:16px 22px 0;
+  }
+  .cine-bar{flex:1;height:3px;background:rgba(255,255,255,0.22);border-radius:2px;overflow:hidden;padding:0;border:none;cursor:pointer;}
+  .cine-bar span{display:block;height:100%;width:0%;background:#fff;border-radius:2px;}
+  .cine-bar.done span{width:100%;}
+  .cine-bar.active span{animation:cineFill 5s linear forwards;}
+  @keyframes cineFill{from{width:0%;}to{width:100%;}}
+  .cine-content{
+    position:absolute;left:0;right:0;bottom:0;z-index:3;
+    padding:34px 34px 30px;
+  }
+  .cine-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px;}
+  .cine-title{color:#fff;font-size:clamp(24px,3.4vw,38px);font-weight:500;max-width:640px;margin-bottom:20px;}
+  .cine-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  .cine-template-btn{display:none;}
+  @media(max-width:640px){
+    .cine-banner{height:440px;border-radius:4px;}
+    .cine-content{padding:22px 20px 24px;}
+    .cine-live{top:14px;left:14px;padding:6px 12px 6px 10px;font-size:9.5px;}
+    .cine-count{top:14px;right:14px;font-size:10px;}
+    .cine-progress{padding:12px 16px 0;}
+  }
 
   /* INDUSTRIES */
   .industries{background:var(--navy);}
@@ -941,7 +1023,25 @@ business website development Kenya
       <h2 class="section-title">See what your business could look like online.</h2>
       <p class="section-body" style="margin:0 auto;">Browse website concepts designed to inspire your next digital step.</p>
     </div>
+
+    <div class="cine-banner" id="cineBanner">
+      <div class="cine-slides" id="cineSlides"></div>
+      <div class="cine-scrim"></div>
+      <div class="cine-progress" id="cineProgress"></div>
+      <div class="cine-live"><span class="cine-dot"></span>Live Portfolio</div>
+      <div class="cine-count" id="cineCount"></div>
+      <div class="cine-content">
+        <div class="cine-tag" id="cineTag"></div>
+        <h3 class="cine-title" id="cineTitle"></h3>
+        <div class="cine-actions">
+          <a href="#" id="cineView" target="_blank" class="btn btn-sm btn-primary on-dark">View Live Site</a>
+          <a href="#" id="cineTemplate" class="btn btn-sm btn-outline on-dark cine-template-btn" target="_blank">Get This Template</a>
+        </div>
+      </div>
+    </div>
+
     <div class="pf-grid" id="pfGrid"></div>
+    <div class="pf-more-row"><button id="pfMoreBtn" class="btn btn-outline">View More Projects</button></div>
     <div class="pf-cta">
       <a href="#" class="btn btn-primary" onclick="openForm();return false;">Get Your Business Online</a>
     </div>
@@ -1376,13 +1476,19 @@ business website development Kenya
   })();
 
   /* ---------- DATA ---------- */
+  /* Set template:true on any project you want to sell as a ready-made template.
+     Only mark generic demo/concept builds this way — not a real client's live business site. */
   const portfolioData = [
-    {num:"01", cat:"Beauty & Grooming", name:"Bigspot Barbershop & Spa", desc:"A booking-ready site for a Nakuru barbershop, built around a clean barber-stripe identity.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1788077845/fbfab0a40180f978b1ae10537f9f7071_x3zils.jpg", type:"Demo", status:"Live", link:"https://mtaaniweb.github.io/Bigspot-Barbershop-Spa-Demo/"},
-    {num:"02", cat:"Photography", name:"Coolpics Studios", desc:"A luxury portfolio site with cream and gold tones, WhatsApp booking, and package pricing.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1788085979/27552f79c6f50bc12af9df0cd2ad1940_scw9qh.jpg", type:"Demo", status:"Live", link:"https://mtaaniweb.github.io/Coolpics-Studios/"},
-    {num:"03", cat:"Automotive", name:"Capital One Motors", desc:"A blueprint-inspired site for a Thika truck body fabrication business, with a WhatsApp quote form.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1788094059/69b96cbb58a983c5b6536bc27ee1cdd9_df3mp5.jpg", type:"Demo", status:"Live", link:"https://mtaaniweb.github.io/Capital-One-Motors/"},
-    {num:"04", cat:"Financial Wellness Platform", name:"Credit Poa", desc:"A financial wellness platform built for a Kenyan lending service. Complete digital presence with clear audience positioning, and a professional design, that communicates the brand and product offer directly to borrowers.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1782912986/Black_Beige_Modern_Typography_Monogram_Logo_20260630_092840_0000_er0jyg.png", type:"Concept", status:"Live", link:"https://mtaaniweb.github.io/Credit-Poa/"},
-    {num:"05", cat:"Beauty & Grooming", name:"Mwas Beauty Parlour", desc:"A demo site for a beauty parlour, giving the business a credible online presence where potential clients can discover services, view contact details, and reach out directly via WhatsApp", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1784976551/15da1ae6b1f8bbb5a6c93b6779fc8921_h5edoa.jpg", type:"Demo", status:"Live", link:"https://mtaaniweb.github.io/Mwas-Beauty-Parlour/"},
-    {num:"06", cat:"Creative Production", name:"M4M.", desc:"A product-led storefront presenting a creative retail brand's catalogue online.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1788166261/54470688fa35dd4e6a8ccd4c25241cbc_bp3zqg.jpg", type:"Demo", status:"Live", link:"https://mtaaniweb.github.io/M4M/"}
+    {num:"01", cat:"Beauty & Grooming", name:"Bigspot Barbershop & Spa", desc:"A booking-ready site for a Nakuru barbershop, built around a clean barber-stripe identity.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1788077845/fbfab0a40180f978b1ae10537f9f7071_x3zils.jpg", type:"Demo", status:"Live", link:"https://mtaaniweb.github.io/Bigspot-Barbershop-Spa-Demo/", template:true},
+    {num:"02", cat:"Photography", name:"Coolpics Studios", desc:"A luxury portfolio site with cream and gold tones, WhatsApp booking, and package pricing.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1788085979/27552f79c6f50bc12af9df0cd2ad1940_scw9qh.jpg", type:"Demo", status:"Live", link:"https://mtaaniweb.github.io/Coolpics-Studios/", template:true},
+    {num:"03", cat:"Automotive", name:"Capital One Motors", desc:"A blueprint-inspired site for a Thika truck body fabrication business, with a WhatsApp quote form.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1788094059/69b96cbb58a983c5b6536bc27ee1cdd9_df3mp5.jpg", type:"Demo", status:"Live", link:"https://mtaaniweb.github.io/Capital-One-Motors/", template:true},
+    {num:"04", cat:"Financial Wellness Platform", name:"Credit Poa", desc:"A financial wellness platform built for a Kenyan lending service. Complete digital presence with clear audience positioning, and a professional design, that communicates the brand and product offer directly to borrowers.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1782912986/Black_Beige_Modern_Typography_Monogram_Logo_20260630_092840_0000_er0jyg.png", type:"Concept", status:"Live", link:"https://mtaaniweb.github.io/Credit-Poa/", template:false},
+    {num:"05", cat:"Beauty & Grooming", name:"Mwas Beauty Parlour", desc:"A demo site for a beauty parlour, giving the business a credible online presence where potential clients can discover services, view contact details, and reach out directly via WhatsApp", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1784976551/15da1ae6b1f8bbb5a6c93b6779fc8921_h5edoa.jpg", type:"Demo", status:"Live", link:"https://mtaaniweb.github.io/Mwas-Beauty-Parlour/", template:true},
+    {num:"06", cat:"Creative Production", name:"M4M.", desc:"A product-led storefront presenting a creative retail brand's catalogue online.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1788166261/54470688fa35dd4e6a8ccd4c25241cbc_bp3zqg.jpg", type:"Demo", status:"Live", link:"https://mtaaniweb.github.io/M4M/", template:true},
+    {num:"07", cat:"Agriculture & Livestock", name:"Isinya Feeds Ltd", desc:"A poultry-focused site for a Kajiado hatchery, showcasing improved kienyeji breeds and layers with a live gallery and WhatsApp ordering.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1788724726/2ef279f4ea3a464978607d7a86112dba_tufund.jpg", type:"Client Site", status:"Live", link:"https://mtaaniweb.github.io/Isinya-Feeds-Ltd/", template:false},
+    {num:"08", cat:"Agriculture & Livestock", name:"Highland Dairy Farm", desc:"A dairy farm site presenting Girolando and Jersey cattle for sale, with featured-animal profiles and direct WhatsApp inquiries.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1788702294/880dc7b1af4a7c3998696a87f4efa7a8_ehcohd.jpg", type:"Client Site", status:"Live", link:"https://mtaaniweb.github.io/Highland-Dairy-Farm/", template:false},
+    {num:"09", cat:"Construction", name:"JOMUL Construction Limited", desc:"A construction company site covering residential, commercial and industrial projects, with a full WhatsApp-ready quote request form.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1788596065/1788595762938_vfuy4f.jpg", type:"Client Site", status:"Live", link:"https://mtaaniweb.github.io/Jomul-Construction/", template:false},
+    {num:"10", cat:"Construction & Manufacturing", name:"Boma Mabati Limited", desc:"A manufacturing and supply site for a roofing sheet factory, showcasing mabati profiles and pricing with WhatsApp quote requests.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1788930491/de215948b9295b4accce9bf438d64802_ekfwyy.jpg", type:"Client Site", status:"Live", link:"https://mtaaniweb.github.io/Boma-Mabati-Limited/", template:false}
   ];
 
   const industries = ["Beauty & Grooming","Restaurants & Food","Retail","Real Estate","Automotive","Photography","Events","Education","Professional Services","Construction","Health & Wellness","Tourism & Hospitality","Online Businesses","Creators & Freelancers"];
@@ -1398,11 +1504,13 @@ business website development Kenya
 
   /* ---------- RENDER PORTFOLIO ---------- */
   const pfGrid = document.getElementById('pfGrid');
-  portfolioData.forEach(p=>{
+  const PF_INITIAL_COUNT = 6; /* how many project cards show before "View More" */
+  portfolioData.forEach((p,i)=>{
     const el = document.createElement('div');
-    el.className = 'pf-card';
+    el.className = 'pf-card' + (i >= PF_INITIAL_COUNT ? ' pf-extra' : '');
     el.innerHTML = `
       <div class="pf-img-wrap">
+        ${p.template ? '<div class="pf-template-badge">Template Available</div>' : ''}
         <img src="${p.img}" alt="${p.name}" onerror="this.style.display='none'">
       </div>
       <div class="pf-fig"><span>Project ${p.num}</span><span>${p.cat}</span></div>
@@ -1419,6 +1527,80 @@ business website development Kenya
       </div>`;
     pfGrid.appendChild(el);
   });
+
+  /* Show more / show less pagination — keeps the initial scroll short as the
+     portfolio grows, while every project still lives in the grid for anyone who wants to see it all. */
+  (function(){
+    const moreBtn = document.getElementById('pfMoreBtn');
+    const extras = document.querySelectorAll('.pf-extra');
+    if(!extras.length){ moreBtn.style.display = 'none'; return; }
+    moreBtn.style.display = 'inline-flex';
+    let expanded = false;
+    moreBtn.textContent = `View More Projects (+${extras.length})`;
+    moreBtn.addEventListener('click', ()=>{
+      expanded = !expanded;
+      extras.forEach(c=>c.classList.toggle('pf-show', expanded));
+      moreBtn.textContent = expanded ? 'Show Fewer Projects' : `View More Projects (+${extras.length})`;
+      if(!expanded){ document.getElementById('portfolio').scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+  })();
+
+  /* ---------- CINEMATIC LIVE BANNER ----------
+     Auto-builds from portfolioData, so adding a new project to the array
+     automatically adds it to the live rotation — nothing else to wire up. */
+  (function(){
+    const cineData = portfolioData.filter(p=>p.img);
+    if(!cineData.length) return;
+    const slidesEl = document.getElementById('cineSlides');
+    const progressEl = document.getElementById('cineProgress');
+    const tagEl = document.getElementById('cineTag');
+    const titleEl = document.getElementById('cineTitle');
+    const viewEl = document.getElementById('cineView');
+    const tplEl = document.getElementById('cineTemplate');
+    const countEl = document.getElementById('cineCount');
+    const bannerEl = document.getElementById('cineBanner');
+    const CINE_MS = 5000;
+    let idx = 0, timer = null;
+
+    slidesEl.innerHTML = cineData.map((p,i)=>`<div class="cine-slide" data-i="${i}" style="background-image:url('${p.img}')"></div>`).join('');
+    progressEl.innerHTML = cineData.map((p,i)=>`<button class="cine-bar" data-i="${i}" aria-label="Show ${p.name}"><span></span></button>`).join('');
+    document.querySelectorAll('.cine-bar').forEach(b=>{
+      b.addEventListener('click', ()=>{ go(parseInt(b.dataset.i,10)); restart(); });
+    });
+
+    function go(i){
+      idx = (i + cineData.length) % cineData.length;
+      const p = cineData[idx];
+      document.querySelectorAll('.cine-slide').forEach((s,si)=>{
+        s.classList.remove('active');
+        if(si === idx){ void s.offsetWidth; s.classList.add('active'); }
+      });
+      document.querySelectorAll('.cine-bar').forEach((b,bi)=>{
+        b.classList.remove('active','done');
+        if(bi < idx) b.classList.add('done');
+        if(bi === idx) b.classList.add('active');
+      });
+      tagEl.textContent = p.cat;
+      titleEl.textContent = p.name;
+      viewEl.href = p.link;
+      countEl.textContent = `${String(idx+1).padStart(2,'0')} / ${String(cineData.length).padStart(2,'0')}`;
+      if(p.template){
+        tplEl.style.display = 'inline-flex';
+        tplEl.href = `https://wa.me/254715392010?text=${encodeURIComponent('Hi MtaaniWeb, I would like to get the '+p.name+' website as a ready-made template.')}`;
+      } else {
+        tplEl.style.display = 'none';
+      }
+    }
+    function next(){ go(idx+1); }
+    function restart(){ clearInterval(timer); timer = setInterval(next, CINE_MS); }
+
+    go(0);
+    restart();
+    bannerEl.addEventListener('mouseenter', ()=>clearInterval(timer));
+    bannerEl.addEventListener('mouseleave', restart);
+    bannerEl.addEventListener('touchstart', ()=>clearInterval(timer), {passive:true});
+    bannerEl.addEventListener('touchend', restart);
+  })();
 
   /* ---------- RENDER INDUSTRIES ---------- */
   const indGrid = document.getElementById('indGrid');
