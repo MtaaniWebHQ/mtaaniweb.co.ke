@@ -33,6 +33,7 @@ business website development Kenya
 
 <meta name="robots" content="index, follow">
 <meta property="og:image" content="https://res.cloudinary.com/hztm3zo8/image/upload/v1782489344/20260611_134430_jn0ezd.jpg">
+<link rel="icon" type="image/png" href="https://res.cloudinary.com/hztm3zo8/image/upload/v1782489344/20260611_134430_jn0ezd.jpg">
 
 <!-- Open Graph -->
 <meta property="og:title" content="MtaaniWeb Kenya | Affordable Websites for Small Businesses">
@@ -460,14 +461,40 @@ business website development Kenya
   .pf-link svg{width:12px;height:12px;transition:transform .2s;}
   .pf-card:hover .pf-link svg{transform:translate(3px,-3px);}
   .pf-cta{margin-top:52px;}
-  .pf-template-badge{
-    position:absolute;top:14px;right:14px;z-index:2;
-    background:rgba(13,11,43,0.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-    color:#fff;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.07em;text-transform:uppercase;
-    padding:6px 10px;border-radius:2px;border:1px solid rgba(255,255,255,0.25);
-    display:flex;align-items:center;gap:6px;
-  }
-  .pf-template-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--cyan);flex-shrink:0;}
+.pf-template-badge{
+  position:absolute;
+  top:14px;
+  right:14px;
+  z-index:2;
+  background:rgba(13,11,43,0.72);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  color:#fff;
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:0.07em;
+  text-transform:uppercase;
+  padding:6px 10px;
+  border-radius:2px;
+  border:1px solid rgba(255,255,255,0.25);
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.pf-template-badge::before{
+  content:'';
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:var(--cyan);
+  flex-shrink:0;
+}
+
+.pf-template-badge.sold-out::before{
+  background:#e53935;
+}
+  
 
   /* SHOW MORE PAGINATION */
   .pf-extra{display:none;}
@@ -1028,7 +1055,7 @@ business website development Kenya
       <div class="cine-slides" id="cineSlides"></div>
       <div class="cine-scrim"></div>
       <div class="cine-progress" id="cineProgress"></div>
-      <div class="cine-live"><span class="cine-dot"></span>Live Portfolio</div>
+      <div class="cine-live"><span class="cine-dot"></span>Concepts & Design</div>
       <div class="cine-count" id="cineCount"></div>
       <div class="cine-content">
         <div class="cine-tag" id="cineTag"></div>
@@ -1485,10 +1512,10 @@ business website development Kenya
     {num:"04", cat:"Financial Wellness Platform", name:"Credit Poa", desc:"A financial wellness platform built for a Kenyan lending service. Complete digital presence with clear audience positioning, and a professional design, that communicates the brand and product offer directly to borrowers.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1782912986/Black_Beige_Modern_Typography_Monogram_Logo_20260630_092840_0000_er0jyg.png", type:"Concept", status:"Live", link:"https://mtaaniweb.github.io/Credit-Poa/", template:false},
     {num:"05", cat:"Beauty & Grooming", name:"Mwas Beauty Parlour", desc:"A demo site for a beauty parlour, giving the business a credible online presence where potential clients can discover services, view contact details, and reach out directly via WhatsApp", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1784976551/15da1ae6b1f8bbb5a6c93b6779fc8921_h5edoa.jpg", type:"Demo", status:"Live", link:"https://mtaaniweb.github.io/Mwas-Beauty-Parlour/", template:true},
     {num:"06", cat:"Creative Production", name:"M4M.", desc:"A product-led storefront presenting a creative retail brand's catalogue online.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1788166261/54470688fa35dd4e6a8ccd4c25241cbc_bp3zqg.jpg", type:"Demo", status:"Live", link:"https://mtaaniweb.github.io/M4M/", template:true},
-    {num:"07", cat:"Agriculture & Livestock", name:"Isinya Feeds Ltd", desc:"A poultry-focused site for a Kajiado hatchery, showcasing improved kienyeji breeds and layers with a live gallery and WhatsApp ordering.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1788724726/2ef279f4ea3a464978607d7a86112dba_tufund.jpg", type:"Client Site", status:"Live", link:"https://mtaaniweb.github.io/Isinya-Feeds-Ltd/", template:false},
-    {num:"08", cat:"Agriculture & Livestock", name:"Highland Dairy Farm", desc:"A dairy farm site presenting Girolando and Jersey cattle for sale, with featured-animal profiles and direct WhatsApp inquiries.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1788702294/880dc7b1af4a7c3998696a87f4efa7a8_ehcohd.jpg", type:"Client Site", status:"Live", link:"https://mtaaniweb.github.io/Highland-Dairy-Farm/", template:false},
-    {num:"09", cat:"Construction", name:"JOMUL Construction Limited", desc:"A construction company site covering residential, commercial and industrial projects, with a full WhatsApp-ready quote request form.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1788596065/1788595762938_vfuy4f.jpg", type:"Client Site", status:"Live", link:"https://mtaaniweb.github.io/Jomul-Construction/", template:false},
-    {num:"10", cat:"Construction & Manufacturing", name:"Boma Mabati Limited", desc:"A manufacturing and supply site for a roofing sheet factory, showcasing mabati profiles and pricing with WhatsApp quote requests.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1788930491/de215948b9295b4accce9bf438d64802_ekfwyy.jpg", type:"Client Site", status:"Live", link:"https://mtaaniweb.github.io/Boma-Mabati-Limited/", template:false}
+    {num:"07", cat:"Agriculture & Livestock", name:"Isinya Feeds Ltd", desc:"A poultry-focused site for a Kajiado hatchery, showcasing improved kienyeji breeds and layers with a live gallery and WhatsApp ordering.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1788724726/2ef279f4ea3a464978607d7a86112dba_tufund.jpg", type:"Demo", status:"Live", link:"https://mtaaniweb.github.io/Isinya-Feeds-Ltd/", template:true},
+    {num:"08", cat:"Agriculture & Livestock", name:"Highland Dairy Farm", desc:"A dairy farm site presenting Girolando and Jersey cattle for sale, with featured-animal profiles and direct WhatsApp inquiries.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1788702294/880dc7b1af4a7c3998696a87f4efa7a8_ehcohd.jpg", type:"Demo", status:"Live", link:"https://mtaaniweb.github.io/Highland-Dairy-Farm/", template:true},
+    {num:"09", cat:"Construction", name:"JOMUL Construction Limited", desc:"A construction company site covering residential, commercial and industrial projects, with a full WhatsApp-ready quote request form.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1788594837/1788516485103_nzmh4o.jpg", type:".co.ke presence", status:"Live", link:"https://jomulconstruction.co.ke", template:false},
+    {num:"10", cat:"Construction & Manufacturing", name:"Boma Mabati Limited", desc:"A manufacturing and supply site for a roofing sheet factory, showcasing mabati profiles and pricing with WhatsApp quote requests.", img:"https://res.cloudinary.com/hztm3zo8/image/upload/v1788930491/de215948b9295b4accce9bf438d64802_ekfwyy.jpg", type:"Demo", status:"Live", link:"https://mtaaniweb.github.io/Boma-Mabati-Limited/", template:true}
   ];
 
   const industries = ["Beauty & Grooming","Restaurants & Food","Retail","Real Estate","Automotive","Photography","Events","Education","Professional Services","Construction","Health & Wellness","Tourism & Hospitality","Online Businesses","Creators & Freelancers"];
@@ -1510,7 +1537,10 @@ business website development Kenya
     el.className = 'pf-card' + (i >= PF_INITIAL_COUNT ? ' pf-extra' : '');
     el.innerHTML = `
       <div class="pf-img-wrap">
-        ${p.template ? '<div class="pf-template-badge">Template Available</div>' : ''}
+        ${p.template 
+  ? '<div class="pf-template-badge">Template Available</div>' 
+  : '<div class="pf-template-badge sold-out"><span></span> Sold Out</div>'
+}
         <img src="${p.img}" alt="${p.name}" onerror="this.style.display='none'">
       </div>
       <div class="pf-fig"><span>Project ${p.num}</span><span>${p.cat}</span></div>
